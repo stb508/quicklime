@@ -10,7 +10,7 @@
 namespace ql {
 	class Script;
 
-	class GameObject {
+	class GameObject : public std::enable_shared_from_this<GameObject> {
 		friend class Camera;
 		friend class ComponentManager;
 		friend class AudioSource;
