@@ -9,17 +9,6 @@ ql::GameObject::GameObject(std::string name, Scene &s)
 	Camera::cameraObjectListDirty = true;
 }
 
-ql::GameObject::GameObject(GameObject &other): s(other.s), children(other.children), id(other.id), name(other.name) {}
-
-ql::GameObject::GameObject(GameObject &&other)
-	: s(other.s), children(std::move(other.children)), 
-	  parent(other.parent),
-	  id(other.id), name(other.name) {
-	other.parent = {};
-	other.id	 = entt::entity{entt::null};
-	other.children.clear();
-}
-
 
 
 std::weak_ptr<ql::GameObject> ql::GameObject::r_search(std::string name) {

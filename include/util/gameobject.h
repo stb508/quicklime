@@ -27,8 +27,10 @@ namespace ql {
 		std::weak_ptr<GameObject> r_search(std::string name);
 	  public:
 		GameObject(std::string name, Scene &s);
-		GameObject(GameObject &other);
-		GameObject(GameObject &&other);
+		GameObject(const GameObject &) = delete;
+		GameObject &operator=(const GameObject &) = delete;
+		GameObject(GameObject &&) = delete;
+		GameObject &operator=(GameObject &&) = delete;
 
 		operator entt::entity() { return id; }
 
